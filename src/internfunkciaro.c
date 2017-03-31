@@ -29,17 +29,17 @@ void internfunkciaro_print(char **argumentaro)
 	}
 }
 
-void internfunkciaro_var(char **argumentaro)
+void internfunkciaro_int(char **argumentaro)
 {
 	if (argumentaro[1] == NULL || argumentaro[2] == NULL || argumentaro[3] == NULL)
-		fprintf(stderr, "%s: argumentoj ne plenas, var bazonas tri argumentojn\n var <variablo> <procedo, =, +=, ktp.> <signifo>\n", NOMO);
+		fprintf(stderr, "%s: argumentoj ne plenas, var bazonas tri argumentojn\n int <variablo> <procedo, =, +=, ktp.> <signifo>\n", NOMO);
 	else {
 		if (strcmp(argumentaro[2], "=") == 0) { // difinas variablon
 			if (setenv(argumentaro[1], argumentaro[3], 1) != 0)
 				perror(NOMO);
 		}
 		else if (strcmp(argumentaro[2], "+=") == 0) {
-			//for (unsigned i = 0; ) // gxislabori
+			
 		}
 		else if (strcmp(argumentaro[2], "-=") == 0) {
 		}
@@ -49,6 +49,20 @@ void internfunkciaro_var(char **argumentaro)
 		}
 		else printf("%s: tiu procedo ne ekzistas\n var <nomo> <=|+=|-=|/=|*=> <signifo>\n", NOMO);
 	}
+}
+
+void internfunkciaro_lin(char **argumentaro)
+{
+	if (argumentaro[1] == NULL || argumentaro[2] == NULL || argumentaro[3] == NULL)
+		fprintf(stderr, "%s: argumentoj ne plenas, var bazonas tri argumentojn\n lin <variablo> <procedo, =, +=, ktp.> <signifo>\n", NOMO);
+	else {}
+}
+
+void internfunkciaro_bool(char **argumentaro)
+{
+	if (argumentaro[1] == NULL || argumentaro[2] == NULL || argumentaro[3] == NULL)
+		fprintf(stderr, "%s: argumentoj ne plenas, var bazonas tri argumentojn\n bool <variablo> <procedo, =, +=, ktp.> <signifo>\n", NOMO);
+	else {}
 }
 
 void internfunkciaro_versio()
@@ -71,7 +85,9 @@ int internfunkciaro_trovo_provu(char **argumentaro)
 	if (strcmp(argumentaro[0], "cd") == 0) internfunkciaro_cd(argumentaro);
 	else if (strcmp(argumentaro[0], "help") == 0) internfunkciaro_help();
 	else if (strcmp(argumentaro[0], "versio") == 0 || strcmp(argumentaro[0], "version") == 0) internfunkciaro_versio();
-	else if (strcmp(argumentaro[0], "var") == 0) internfunkciaro_var(argumentaro);
+	else if (strcmp(argumentaro[0], "int") == 0) internfunkciaro_int(argumentaro);
+	else if (strcmp(argumentaro[0], "lin") == 0) internfunkciaro_lin(argumentaro);
+	else if (strcmp(argumentaro[0], "bool") == 0) internfunkciaro_bool(argumentaro);
 	else if (strcmp(argumentaro[0], "print") == 0) internfunkciaro_print(argumentaro);
 	else if (strcmp(argumentaro[0], "eliru") == 0 || strcmp(argumentaro[0], "exit") == 0) exit(0); // elirilo
 	else return 0; // komando ne estas interna

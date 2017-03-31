@@ -11,6 +11,7 @@
 #include "komandilo.h"
 #include "malmiksilo.h"
 #include "lancxilo.h"
+#include "prilaborilo.h"
 
 void informilo(int tipo) // se tipo estas 0, printos helpon, se 1, printos nur version
 {
@@ -24,8 +25,6 @@ void informilo(int tipo) // se tipo estas 0, printos helpon, se 1, printos nur v
 		printf("%s %s - eta ŝelo\n", NOMO, VERSIO);
 	}
 }
-
-void nenion_fari(){} // fari nenion 
 
 int main(int argc, char **argv)
 {
@@ -57,15 +56,17 @@ int main(int argc, char **argv)
 
 	do {
 		snprintf(tujsaluto, sizeof(tujsaluto), "%s %s ", getenv("USER"), ">"); // plenigi tujsaluto-n kun tujsalutlinio, ekz "ivano > "
-		
+			
 		enkonduko = readline(tujsaluto); // legu komandon de uzanto
-				
-		add_history(enkonduko); // aldoni komandon al historio
-		
+
 		if (!enkonduko) 
 			break; // eraroprilaborado
+
+		add_history(enkonduko); // aldoni komandon al historio
 		
 		argumentaro = malmiksu(enkonduko); // komentaro estas en malmiksilo.c
+		
+		argumentaro = prilaboru(argumentaro);
 		
 		stato = lancxu(argumentaro); // en lancxilo.c
 

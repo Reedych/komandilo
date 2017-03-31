@@ -1,7 +1,7 @@
 CC=clang
 CFLAGS=-c -std=c99 -ggdb -Wall
 LDFLAGS=-lreadline -lcurses
-SOURCES=src/main.c src/lancxilo.c src/malmiksilo.c src/internfunkciaro.c
+SOURCES=src/main.c src/lancxilo.c src/malmiksilo.c src/internfunkciaro.c src/prilaborilo.c
 OBJECTS=$(SOURCES:.c=.o)
 EXECUTABLE=komandilo
 
