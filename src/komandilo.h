@@ -2,5 +2,5 @@
 
 #pragma once
 
-#define VERSIO "0.1" // versio de la Komandilo
+#define VERSIO "0.2" // versio de la Komandilo
 #define NOMO "Komandilo" // nom' de l'program'

@@ -21,7 +21,7 @@ void informilo(int tipo) // se tipo estas 0, printos helpon, se 1, printos nur v
 		printf("  -v - versio\n");
 	}
 	else if (tipo == 1) {
-		printf("%s %s - eta komandilo\n", NOMO, VERSIO);
+		printf("%s %s - eta ŝelo\n", NOMO, VERSIO);
 	}
 }
 
